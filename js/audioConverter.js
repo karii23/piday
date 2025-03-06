@@ -19,7 +19,7 @@ async function speechToText() {
         const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
         const recognition = new webkitSpeechRecognition() || new SpeechRecognition();
         recognition.lang = 'en-US';
-        // recognition.interimResults = false;
+        recognition.interimResults = false;
         recognition.maxAlternatives = 1;
     
         recognition.onerror = (event) => {
@@ -28,17 +28,17 @@ async function speechToText() {
         
         recognition.onresult = (event) => {
             const result = event.results[0][0].transcript;
-
-
-
             
             console.log('Recognized:', result);
 
+            // output = result.split(' ');
+
+            // let a = output.join('');
+
+            // output = a.split('');
+
             for(let i=0; i<result.length; i++){
-                if(result[i] === " "){
-                    continue;
-                }
-                else{
+                if(result[i] !== " "){
                     output += result[i];
                 }
             }
@@ -59,7 +59,7 @@ async function speechToText() {
             }
 
             document.getElementById("speechoutput").innerHTML = numbers;
-            document.getElementById("numberofpi").innerHTML = `The number of digits mentioned is ${n}`;
+            document.getElementById("numberofpi").innerHTML = `The number of correct digits mentioned is ${n}`;
 
             mic.src = "media/icons/microphone.png";
             
