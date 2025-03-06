@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scoreboard</title>
+    <style>
+        body {
+            background: linear-gradient(to bottom right, #3d26eb 0%, #994aca 100%);
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-attachment: fixed;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: white;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .title {
+            text-decoration: underline;
+            letter-spacing: 2px;
+            font-size: 48px;
+            margin-bottom: 30px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+
+        table {
+            width: 80%;
+            max-width: 800px;
+            border-collapse: collapse;
+            box-shadow: 0px 5px 20px rgba(0, 0, 0, 0.3);
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        th, td {
+            padding: 15px 20px;
+            text-align: center;
+            font-size: 24px;
+        }
+
+        th {
+            background-color: rgba(255, 255, 255, 0.1);
+            font-weight: 600;
+            letter-spacing: 1px;
+        }
+
+        tr:nth-child(even) {
+            background-color: rgba(255, 255, 255, 0.05);
+        }
+
+        td:hover {
+            background-color: rgba(83, 21, 177, 0.2);
+            transition: background-color 0.3s ease;
+        }
+    </style>
+</head>
+<body>
+    <p class="title">SCOREBOARD</p><br>
+    <table border="0" cellspacing="0" cellpadding="0">
+        <tr>
+            <th>NAME</th>
+            <th>SCORE</th>
+        </tr>
+        <tr>
+            <td>Player 1</td>
+            <td>120</td>
+        </tr>
+        <tr>
+            <td>Player 2</td>
+            <td>95</td>
+        </tr>
+        <tr>
+            <td>Player 3</td>
+            <td>78</td>
+        </tr>
+        <tr>
+            <td>Player 4</td>
+            <td>62</td>
+        </tr>
+        <tr>
+          <td>Player 5</td>
+          <td>43</td>
+        </tr>
+    </table>
+</body>
+</html>

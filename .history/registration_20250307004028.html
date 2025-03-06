@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pi Day</title>
+    <style>
+        body {
+            background: linear-gradient(to bottom right, #3d26eb 0%, #994aca 100%);
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-attachment: fixed;
+            display: flex; /* Add flexbox to center the fieldset */
+            justify-content: center; /* Center horizontally */
+            align-items: center; /* Center vertically */
+            min-height: 100vh; /* Ensure full viewport height */
+            margin: 0; /* Remove default body margin */
+        }
+        fieldset {
+            background-color: rgb(0, 0, 0, 0.1);
+            width: 600px;
+            height: 400px;
+            box-shadow: rgb(0, 0, 0, 0.2) 1px 1px 4px 4px;
+            border: solid 2px rgba(234, 234, 234, 0.999);
+            border-radius: 20px;
+            text-align: center;
+            display: flex; /* Add flexbox to fieldset */
+            flex-direction: column; /* Stack children vertically */
+        }
+        .logo-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+            padding: 20px 40px; /* Increased padding for better spacing */
+            box-sizing: border-box; /* Include padding in width */
+        }
+        .logo {
+            width: 50px; /* Slightly larger logo */
+            height: 50px; /* Slightly larger logo */
+            
+        }
+        .pi-symbol {
+            font-size: 70px; /* Slightly larger Pi symbol */
+            color: rgba(255, 255, 255, 0.8);
+            animation: floatPi 2s ease-in-out infinite alternate;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4);
+        }
+        @keyframes floatPi {
+            0% { transform: translateY(0); }
+            100% { transform: translateY(-15px); }
+        }
+        .heading {
+            font-family: sans-serif;
+            font-size: 40px;
+            font-weight: bold;
+            color: white;
+            margin-top: 40px; /* Add space above heading */
+        }
+        input[type="number"] {
+            font-size: 35px;
+            padding-left: 25px;
+            color: #994aca;
+        }
+        .num {
+            border: none;
+            width: 400px;
+            height: 60px;
+            border-radius: 40px;
+            margin-top: 30px; /* Add space above input */
+        }
+        .next {
+            width: 180px;
+            height: 50px;
+            border-radius: 30px;
+            border: none;
+            font-size: 20px;
+            letter-spacing: 1px;
+            background-color: #eceaf7;
+            transition: all 0.3s ease;
+            margin-top: 40px; /* Add space above button */
+        }
+        .next:hover {
+            background: linear-gradient(to bottom right, #8172f4 0%, #b37ed3 100%);
+            transition: 0.2s ease;
+            transform: scale(1.05);
+            color: white;
+            box-shadow: #979cec 0px 0px 2px 2px;
+        }
+    </style>
+</head>
+<body>
+    <fieldset>
+        <div class="logo-container">
+            <img src="Shaaban_Logo.jpg" class="logo">
+            <div class="pi-symbol">π</div>
+        </div>
+        <p class="heading">Enter number of participants</p>
+        <input type="number" class="num" min="1">
+        <button type="button" onclick="next()" class="next">Next</button>
+    </fieldset>
+    <script>
+        function next() {
+            window.location.href = "names.html";
+        }
+    </script>
+</body>
+</html>

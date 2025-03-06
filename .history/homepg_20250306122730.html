@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home page</title>
+</head>
+<style>
+    body
+    {
+        background: linear-gradient(to bottom right, #3d26eb 0%, #994aca 100%);
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-attachment: fixed;
+    }
+    img
+    {
+        width: 400px;
+        height: 400px;
+        animation: microphone 1s infinite alternate;
+        transform: scale(0.9);
+        transition: all 1s ease;
+    }
+    @keyframes microphone
+    {
+        0% {transform: scale(0.95);}
+        100%{transform: scale(1);}
+    }
+    .appear
+    {
+        width: 500px;
+        height: 70px;
+        border-radius: 15px;
+        border: none;
+    }
+    input[type = "text"]
+    {
+        background-color: rgb(0,0,0,0.2);
+        font-size: 25px;
+        color: white;
+    }
+    .correct
+    {
+        width: 180px;
+        height: 50px;
+        font-size: 18px;
+        border-radius: 30px;
+        border: none;
+    }
+    .correct:hover
+    {
+        background: linear-gradient(to bottom right, #de5cf8 0%, #7456ee 100%);
+        transition: 1s ease;
+        color: white;
+        box-shadow: #3a3f7c 0px 0px 2px 2px;
+    }
+    .clear
+    {
+        width: 60px;
+        height: 50px;
+        font-size: 18px;
+        border-radius: 20px;
+        border: none;
+    }
+    .clear:hover
+    {
+        background: linear-gradient(to bottom right, #de5cf8 0%, #7456ee 100%);
+        transition: 1s ease;
+        color: white;
+        box-shadow: #3a3f7c 0px 0px 2px 2px;
+    }
+</style>
+<body>
+    <center>
+        <img src="microphone.png" title="Click to speak"><br>
+        <!-- digits to appear her -->
+        <input type="text" class="appear"><br><br><br>
+        <button type="button">Submit Record</button>
+    </center>
+</body>
+</html>
