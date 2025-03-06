@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Participant Input</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background: linear-gradient(135deg, #6a11cb, #2575fc);
+            color: white;
+            text-align: center;
+        }
+
+        .container {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            border: 1px solid rgba(255, 255, 255, 0.18);
+            width: 400px;
+        }
+
+        h1 {
+            margin-bottom: 30px;
+            color: #e0f7fa;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        input[type="number"], input[type="text"], button {
+            width: calc(100% - 22px);
+            padding: 10px;
+            margin-bottom: 20px;
+            border: none;
+            border-radius: 5px;
+            background: rgba(255, 255, 255, 0.8);
+            color: #333;
+            box-sizing: border-box;
+            transition: background 0.3s ease;
+        }
+
+        input[type="number"]:focus, input[type="text"]:focus, button:focus {
+            outline: none;
+            background: rgba(255, 255, 255, 0.95);
+        }
+
+        button {
+            background: #4caf50;
+            color: white;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+
+        button:hover {
+            background: #43a047;
+        }
+
+        #nameInputs {
+            display: none;
+        }
+
+        .input-group {
+            margin-bottom: 10px;
+            text-align: left;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Enter Participant Details</h1>
+        <div id="participantNumberInput">
+            <label for="participants">Number of Participants:</label>
+            <input type="number" id="participants" min="1">
+            <button onclick="showNameInputs()">Next</button>
+        </div>
+        <div id="nameInputs">
+            <h2>Enter Participant Names</h2>
+            <div id="nameFields"></div>
+            <button onclick="displayNames()">Submit</button>
+        </div>
+        <div id="results"></div>
+    </div>
+
+    <script>
+        function showNameInputs() {
+            const numParticipants = document.getElementById('participants').value;
+            if (numParticipants <= 0) {
+                alert("Please enter a valid number of participants.");
+                return;
+            }
+
+            document.getElementById('participantNumberInput').style.display = 'none';
+            document.getElementById('nameInputs').style.display = 'block';
+
+            const nameFields = document.getElementById('nameFields');
+            nameFields.innerHTML = ''; // Clear previous fields
+
+            for (let i = 0; i < numParticipants; i++) {
+                const inputGroup = document.createElement('div');
+                inputGroup.className = 'input-group';
+                const label = document.createElement('label');
+                label.textContent = `Participant ${i + 1}:`;
+                const input = document.createElement('input');
+                input.type = 'text';
+                input.id = `name${i}`;
+                input.placeholder = "Enter name";
+                inputGroup.appendChild(label);
+                inputGroup.appendChild(input);
+                nameFields.appendChild(inputGroup);
+            }
+        }
+
+        function displayNames() {
+             const numParticipants = document.getElementById('participants').value;
+            const names = [];
+            for (let i = 0; i < numParticipants; i++) {
+                names.push(document.getElementById(`name${i}`).value);
+            }
+            document.getElementById('nameInputs').style.display = 'none';
+            document.getElementById('results').innerHTML = `<h2>Participants:</h2><p>${names.join(', ')}</p>`;
+        }
+    </script>
+</body>
+</html>

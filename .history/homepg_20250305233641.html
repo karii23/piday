@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home page</title>
+</head>
+<style>
+    body
+    {
+        background: linear-gradient(to bottom right, #3d26eb 0%, #994aca 100%);
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-attachment: fixed;
+    }
+    img
+    {
+        width: 400px;
+        height: 400px;
+        animation: microphone 1s infinite alternate;
+        transform: scale(0.9);
+        transition: all 1s ease;
+    }
+    @keyframes microphone
+    {
+        0% {transform: scale(0.95);}
+        100%{transform: scale(1);}
+    }
+    .appear
+    {
+        width: 500px;
+        height: 70px;
+        border-radius: 15px;
+        border: none;
+    }
+    input[type = "text"]
+    {
+        background-color: rgb(0,0,0,0.2);
+        font-size: 25px;
+        color: white;
+    }
+    .correct
+    {
+        width: 180px;
+        height: 50px;
+        font-size: 15px;
+    }
+    .clear
+    {
+        width: 50px;
+    }
+</style>
+<body>
+    <center>
+        <img src="microphone.png" title="Click to speak"><br>
+        <!-- digits to appear her -->
+        <input type="text" class="appear"><br><br><br>
+        <button onclick="correct()" class="correct">Show Correct Digits</button>&nbsp;&nbsp;&nbsp;&nbsp;
+        <button onclick="clearIt()" class="clear">Clear</button>
+    </center>
+</body>
+</html>

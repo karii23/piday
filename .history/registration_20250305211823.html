@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pi Day</title>
+    <style>
+        body
+        {
+            background: linear-gradient(to bottom right, #3d26eb 0%, #994aca 100%);
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-attachment: fixed;
+        }
+        fieldset
+        {
+            margin-top: 140px;
+            background-color: rgb(0,0,0,0.1);
+            width: 600px;
+            height: 400px;
+            box-shadow: rgb(0,0,0,0.2) 1px 1px 4px 4px;
+            border: rgb(0,0,0,0.5);
+            border-radius: 20px;
+        }
+        .heading
+        {
+            font-family: sans-serif;
+            font-size: 40px;
+            font-weight: bold;
+            color: white;
+        }
+        input[type = "number"]
+        {
+            font-size: 35px;
+            padding-left: 25px;
+        }
+        .num
+        {
+            border: none;
+            width: 400px;
+            height: 60px;
+            border-radius: 40px;
+        }
+        .next
+        {
+            width: 180px;
+            height: 50px;
+            border-radius: 30px;
+            border: none;
+            font-size: 20px;
+            letter-spacing: 1px;
+            transform: scale3d(0.9);
+        }
+        .next:hover
+        {
+            background-color: aliceblue;
+            transform: scale3d(0.8);
+        }
+    </style>
+</head>
+<body>
+    <center>
+    <fieldset>
+        <br>
+        <p class="heading">Enter number of participants</p><br>
+        <input type="number" class="num"><br><br><br><br>
+        <button type="button" onclick="next()" class="next">Next</button><br>
+    </fieldset>
+    </center>
+</body>
+</html>

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Enhanced UI</title>
+    <style>
+        body {
+            margin: 0;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: radial-gradient(circle, #FF00FF, #4B0082, #00CED1);
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .card {
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+            text-align: center;
+            width: 300px;
+        }
+
+        .card h2 {
+            color: #E6E6FA;
+            font-size: 24px;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
+            margin-bottom: 20px;
+        }
+
+        .card input {
+            width: 100%;
+            padding: 10px 15px;
+            border: 1px solid #D3D3D3;
+            border-radius: 10px;
+            background: rgba(255, 255, 255, 0.9);
+            box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+            font-size: 16px;
+            color: #333;
+        }
+
+        .card input::placeholder {
+            color: #666;
+        }
+
+        .card button {
+            background: #00CED1;
+            color: #fff;
+            padding: 10px 30px;
+            border: none;
+            border-radius: 25px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            cursor: pointer;
+            font-size: 16px;
+            transition: all 0.3s ease;
+        }
+
+        .card button:hover {
+            background: #40E0D0;
+            transform: scale(1.05);
+            box-shadow: 0 0 10px #00CED1;
+        }
+    </style>
+</head>
+<body>
+    <div class="card">
+        <h2>Enter number of participants</h2>
+        <input type="number" placeholder="Number">
+        <button>Next</button>
+    </div>
+</body>
+</html>

@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Participant Input</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background: linear-gradient(135deg, #6a11cb, #2575fc);
+            color: white;
+            text-align: center;
+        }
+
+        .container {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            border: 1px solid rgba(255, 255, 255, 0.18);
+            width: 400px;
+        }
+
+        h1 {
+            margin-bottom: 30px;
+            color: #e0f7fa;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        input[type="number"], input[type="text"], button {
+            width: calc(100% - 22px);
+            padding: 10px;
+            margin-bottom: 20px;
+            border: none;
+            border-radius: 5px;
+            background: rgba(255, 255, 255, 0.8);
+            color: #333;
+            box-sizing: border-box;
+            transition: background 0.3s ease;
+        }
+
+        input[type="number"]:focus, input[type="text"]:focus, button:focus {
+            outline: none;
+            background: rgba(255, 255, 255, 0.95);
+        }
+
+        button {
+            background: #4caf50;
+            color: white;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+
+        button:hover {
+            background: #43a047;
+        }
+
+        #nameInputs {
+            display: none;
+        }
+
+        .popup {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: rgba(255, 255, 255, 0.9);
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            z-index: 1000;
+            text-align: center;
+            color: #333;
+        }
+        .popup input[type="text"] {
+          width: 90%;
+          margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Enter Participant Details</h1>
+        <div id="participantNumberInput">
+            <label for="participants">Number of Participants:</label>
+            <input type="number" id="participants" min="1">
+            <button onclick="startNameInput()">Next</button>
+        </div>
+        <div id="results"></div>
+    </div>
+
+    <script>
+        let participantCount = 0;
+        let totalParticipants = 0;
+        let participantNames = [];
+
+        function startNameInput() {
+            totalParticipants = parseInt(document.getElementById('participants').value);
+            if (totalParticipants <= 0) {
+                alert("Please enter a valid number of participants.");
+                return;
+            }
+            document.getElementById('participantNumberInput').style.display = 'none';
+            showNamePopup();
+        }
+
+        function showNamePopup() {
+            if (participantCount < totalParticipants) {
+                const popup = document.createElement('div');
+                popup.className = 'popup';
+                popup.innerHTML = `
+                    <h2>Enter name for participant ${participantCount + 1}:</h2>
+                    <input type="text" id="participantName">
+                    <button onclick="saveName()">OK</button>
+                `;
+                document.body.appendChild(popup);
+            } else {
+                displayNames();
+            }
+        }
+
+        function saveName() {
+            const name = document.getElementById('participantName').value;
+            participantNames.push(name);
+            participantCount++;
+            document.body.removeChild(document.querySelector('.popup'));
+            showNamePopup();
+        }
+
+        function displayNames() {
+            document.getElementById('results').innerHTML = `<h2>Participants:</h2><p>${participantNames.join(', ')}</p>`;
+        }
+    </script>
+</body>
+</html>

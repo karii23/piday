@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pi Day Celebration</title>
+    <style>
+        body {
+            background: linear-gradient(to bottom right, #2c3e50, #3498db); /* Darker, more elegant gradient */
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-attachment: fixed;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            font-family: 'Montserrat', sans-serif; /* Modern font */
+            overflow: hidden;
+            position: relative; /* For background circles */
+        }
+
+        /* Background Circles */
+        body::before, body::after {
+            content: '';
+            position: absolute;
+            width: 300px;
+            height: 300px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.1);
+            filter: blur(100px);
+            z-index: 0;
+        }
+
+        body::before {
+            top: -100px;
+            left: -100px;
+        }
+
+        body::after {
+            bottom: -100px;
+            right: -100px;
+        }
+
+        fieldset {
+            background-color: rgba(255, 255, 255, 0.1);
+            width: clamp(300px, 80%, 600px);
+            padding: 50px;
+            border-radius: 40px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+            text-align: center;
+            position: relative;
+            animation: fadeIn 1.2s ease-out;
+            z-index: 1; /* Ensure fieldset is above background circles */
+            backdrop-filter: blur(10px); /* Add a frosted glass effect */
+            border: 1px solid rgba(255,255,255,0.2);
+        }
+
+        .heading {
+            font-size: clamp(32px, 5vw, 48px);
+            font-weight: 600; /* Semi-bold */
+            color: white;
+            margin-bottom: 40px;
+            text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.6);
+            letter-spacing: 1px;
+        }
+
+        .num {
+            width: clamp(250px, 70%, 450px);
+            height: 70px;
+            padding: 0 25px;
+            font-size: clamp(28px, 4vw, 40px);
+            border: none;
+            border-radius: 50px;
+            background-color: rgba(255, 255, 255, 0.9);
+            color: #3498db;
+            box-shadow: inset 0 3px 6px rgba(0, 0, 0, 0.25);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .num:focus {
+            outline: none;
+            transform: scale(1.03);
+            box-shadow: inset 0 5px 10px rgba(0, 0, 0, 0.35);
+        }
+
+        .next {
+            width: 200px;
+            height: 60px;
+            border: none;
+            border-radius: 35px;
+            font-size: 22px;
+            letter-spacing: 1.2px;
+            background: linear-gradient(to bottom right, #3498db, #2980b9);
+            color: white;
+            cursor: pointer;
+            margin-top: 50px;
+            box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
+            transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
+            font-weight: 500;
+        }
+
+        .next:hover {
+            transform: scale(1.05);
+            box-shadow: 0 7px 14px rgba(0, 0, 0, 0.4);
+            background: linear-gradient(to bottom right, #2980b9, #3498db);
+        }
+
+        .pi-symbol {
+            position: absolute;
+            top: 20px;
+            right: 30px;
+            font-size: 60px;
+            color: rgba(255, 255, 255, 0.8);
+            animation: rotatePi 6s linear infinite, floatPi 5s ease-in-out infinite alternate;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4);
+        }
+
+        @keyframes rotatePi {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        @keyframes floatPi {
+            0% { transform: translateY(0); }
+            100% { transform: translateY(-15px); }
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body>
+    <fieldset>
+        <div class="pi-symbol">π</div>
+        <p class="heading">Enter number of participants</p>
+        <input type="number" class="num" min="1" placeholder="e.g., 3, 10, 25">
+        <button type="button" onclick="next()" class="next">Next</button>
+    </fieldset>
+
+    <script>
+        function next() {
+            window.location.href = "names.html";
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pi Day Celebration</title>
+    <style>
+        body {
+            background: linear-gradient(to bottom right, #3d26eb 0%, #994aca 100%);
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-attachment: fixed;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            font-family: 'Arial', sans-serif;
+            overflow: hidden; /* Prevent scrollbars */
+        }
+
+        fieldset {
+            background-color: rgba(0, 0, 0, 0.1);
+            width: clamp(300px, 80%, 600px); /* Responsive width */
+            padding: 40px;
+            border-radius: 30px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+            text-align: center;
+            position: relative;
+            animation: fadeIn 1s ease-out;
+        }
+
+        .heading {
+            font-size: clamp(28px, 5vw, 40px); /* Responsive font size */
+            font-weight: bold;
+            color: white;
+            margin-bottom: 30px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+
+        .num {
+            width: clamp(200px, 70%, 400px);
+            height: 60px;
+            padding: 0 20px;
+            font-size: clamp(24px, 4vw, 35px);
+            border: none;
+            border-radius: 40px;
+            background-color: rgba(255, 255, 255, 0.8);
+            color: #994aca;
+            box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .num:focus {
+            outline: none;
+            transform: scale(1.05);
+            box-shadow: inset 0 4px 8px rgba(0, 0, 0, 0.3);
+        }
+
+        .next {
+            width: 180px;
+            height: 50px;
+            border: none;
+            border-radius: 30px;
+            font-size: 20px;
+            letter-spacing: 1px;
+            background: linear-gradient(to bottom right, #eceaf7, #d0c9f0);
+            color: #333;
+            cursor: pointer;
+            margin-top: 40px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease, color 0.3s ease;
+        }
+
+        .next:hover {
+            background: linear-gradient(to bottom right, #8172f4, #b37ed3);
+            color: white;
+            transform: scale(1.05);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Animated Pi Symbol */
+        .pi-symbol {
+            position: absolute;
+            top: 10px;
+            right: 20px;
+            font-size: 50px;
+            color: white;
+            animation: rotatePi 5s linear infinite, floatPi 4s ease-in-out infinite alternate;
+        }
+
+        @keyframes rotatePi {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        @keyframes floatPi {
+            0% { transform: translateY(0); }
+            100% { transform: translateY(-10px); }
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body>
+    <fieldset>
+        <div class="pi-symbol">π</div>
+        <p class="heading">Enter number of participants</p>
+        <input type="number" class="num" min="1" placeholder="e.g., 3, 10, 25">
+        <button type="button" onclick="next()" class="next">Next</button>
+    </fieldset>
+
+    <script>
+        function next() {
+            window.location.href = "names.html";
+        }
+    </script>
+</body>
+</html>
