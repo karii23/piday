@@ -25,45 +25,6 @@ async function speechToText() {
         recognition.onerror = (event) => {
             console.error('Speech recognition error:', event.error);
         };
-        
-        recognition.onresult = (event) => {
-            const result = event.results[0][0].transcript;
-            
-            console.log('Recognized:', result);
-
-            // output = result.split(' ');
-
-            // let a = output.join('');
-
-            // output = a.split('');
-
-            for(let i=0; i<result.length; i++){
-                if(result[i] !== " "){
-                    output += result[i];
-                }
-            }
-
-            console.log(output);
-
-            for(let i=0; i<pi.length; i++){
-                if(output[i] === pi[i]){
-                    numbers += output[i];
-                }
-                else{
-                    break;
-                }
-            }
-
-            for(let j=2; j<numbers.length; j++){
-                n++;
-            }
-
-            document.getElementById("speechoutput").innerHTML = numbers;
-            document.getElementById("numberofpi").innerHTML = `The number of correct digits mentioned is ${n}`;
-
-            mic.src = "media/icons/microphone.png";
-            
-        };
 
         mic.addEventListener('click', function(){
             b++;
@@ -71,6 +32,46 @@ async function speechToText() {
             if(isEven(b)){
                 recognition.onend = () => {
                     console.log('Speech recognition ended.');
+                };
+
+                recognition.onresult = (event) => {
+                    n=0;
+                    const result = event.results[0][0].transcript;
+                    
+                    console.log('Recognized:', result);
+        
+                    // output = result.split(' ');
+        
+                    // let a = output.join('');
+        
+                    // output = a.split('');
+        
+                    for(let i=0; i<result.length; i++){
+                        if(result[i] !== " "){
+                            output += result[i];
+                        }
+                    }
+        
+                    console.log(output);
+        
+                    for(let i=0; i<pi.length; i++){
+                        if(output[i] === pi[i]){
+                            numbers += output[i];
+                        }
+                        else{
+                            break;
+                        }
+                    }
+        
+                    for(let j=2; j<numbers.length; j++){
+                        n++;
+                    }
+        
+                    document.getElementById("speechoutput").innerHTML = numbers;
+                    document.getElementById("numberofpi").innerHTML = `The number of correct digits mentioned is ${n}`;
+        
+                    mic.src = "media/icons/microphone.png";
+                    
                 };
 
                 

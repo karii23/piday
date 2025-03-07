@@ -3,19 +3,36 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="css/audio.css">
-    <title>PI Recitment</title>
+    <title>Pi Day</title>
+    <link rel="stylesheet" type="text/css" href="css/register.css">
+    <link rel="icon" type="image/X-icon" href="media/images/srss-logo-removebg-preview.png">
 </head>
 <body>
-    <div class="main">
-        <h1>Try to Speak:</h1><br>
-        <img src="media/icons/microphone.png" class="mic">
-        <form action="submit.php" method="POST">
-            <textarea name="output" cols="50" rows="1" id="speechoutput"></textarea>
-            <button name="submit">Submit</button>
-        </form>
-        <p id="numberofpi"></p>
-    </div>
+    <center>
+        <fieldset>
+            <div class="pi-symbol">π</div><br>
+            <form action="register.php" name="form" method="POST">
+                <p class="heading">Enter name of participants</p><br>
+                <input type="text" class="num" name="username" id="user"><br><br>
+                <p class="alert" id="ualert"></p><br><br>
+                <button onclick="next()" name="submit" class="next">Next</button><br>
+            </form>
+        </fieldset>
+    </center>
+    <script>
+        function next()
+        {
+            if(document.form.username.value === ""){
+                document.getElementById("ualert").innerHTML = "Please input username!";
+                document.getElementById("user").style.border = "2px solid red";
+                event.preventDefault();
+            }
+            else{
+                document.getElementById("ualert").innerHTML = "";
+                document.getElementById("user").style.border = "none";
+            }
+
+        }
+    </script>
 </body>
-<script src="js/audioConverter.js"></script>
 </html>

@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="css/audio.css">
+    <title>PI Recitment</title>
+</head>
+<body>
+    <div class="main">
+        <h1>Try to Speak:</h1><br>
+        <img src="media/icons/microphone.png" class="mic">
+        <form action="submit.php" method="POST">
+            <textarea name="output" cols="50" rows="1" id="speechoutput"></textarea>
+            <button name="submit">Submit</button>
+        </form>
+        <p id="numberofpi"></p>
+    </div>
+</body>
+<script src="js/audioConverter.js"></script>
+</html>
