@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scoreboard</title>
+    <style>
+        body {
+            background: linear-gradient(to bottom right, #3d26eb 0%, #994aca 100%);
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-attachment: fixed;
+            font-family: 'Roboto', sans-serif; /* Example font */
+            margin: 0; /* Remove default body margin */
+            display: flex; /*Use flexbox to center content*/
+            flex-direction: column;
+            min-height: 100vh; /*Ensure body takes up full height*/
+            justify-content: center; /*Center content vertically*/
+            align-items: center; /*Center content horizontally*/
+        }
+        .title {
+            text-decoration: underline;
+            color: white;
+            letter-spacing: 2px;
+            font-size: 48px;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+        table {
+            color: white;
+            letter-spacing: 1px;
+            border: 2px outset white;
+            font-size: 24px;
+            text-align: center;
+            width: 80%; /* Adjusted width */
+            max-width: 600px; /*Added max width*/
+            border-collapse: collapse;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+            overflow: hidden; /*Needed for rounded corners with background colors*/
+        }
+        th, td {
+            padding: 15px 20px;
+        }
+        th {
+            background-color: rgba(255, 255, 255, 0.1);
+            font-weight: 600;
+        }
+        tr:nth-child(even) {
+            background-color: rgba(255, 255, 255, 0.05);
+        }
+        tr:hover {
+            background-color: rgba(255, 255, 255, 0.15);
+        }
+        /*Responsive Design*/
+        @media (max-width: 600px) {
+          table {
+            font-size: 18px;
+            width: 95%;
+          }
+          th, td{
+            padding: 10px 12px;
+          }
+          .title{
+            font-size: 36px;
+          }
+        }
+
+    </style>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <p class="title">SCOREBOARD</p>
+    <table border="1">
+        <tr>
+            <th>NAME</th>
+            <th>SCORE</th>
+        </tr>
+        <tr>
+            <td>Player 1</td>
+            <td>1200</td>
+        </tr>
+        <tr>
+            <td>Player 2</td>
+            <td>950</td>
+        </tr>
+    </table>
+</body>
+</html>
