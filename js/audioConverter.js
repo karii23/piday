@@ -71,7 +71,8 @@ async function speechToText() {
                     document.getElementById("numberofpi").innerHTML = `The number of correct digits mentioned is ${n}`;
         
                     mic.src = "media/icons/microphone.png";
-                    
+                    mic.style.width = "350px";
+                    mic.style.height = "400px";
                 };
 
                 
@@ -84,6 +85,8 @@ async function speechToText() {
                 output = "";     
                 numbers = "";
                 mic.src = "media/icons/active-mic.png";
+                mic.style.width = "200px";
+                mic.style.height = "250px";
             }
         })
     

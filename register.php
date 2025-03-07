@@ -45,7 +45,7 @@
             }
         }
 
-        if($exist){
+        if(!$exist){
             $query2 = "INSERT INTO users(username, userkey) VALUES('$username', '$userkey')";
             $result2 = mysqli_query($db, $query2);
 
@@ -62,11 +62,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pi Day</title>
     <link rel="stylesheet" type="text/css" href="css/register.css">
+    <link rel="icon" type="image/X-icon" href="media/images/srss-logo-removebg-preview.png">
 </head>
 <body>
     <center>
         <fieldset>
-            <div class="pi-symbol">π</div><br>
+            <div class="pi-symbol">π</div><br><br><br>
             <?php echo "<p class='message'>$message</p><br>";?>
         </fieldset>
     </center>

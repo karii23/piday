@@ -30,8 +30,8 @@ fieldset
 }
 @keyframes floatPi 
 {
-    0% { transform: translateY(0); }
-    100% { transform: translateY(-15px); }
+    from { transform: translateY(0); }
+    to { transform: translateY(-15px); }
 }
 .heading
 {
