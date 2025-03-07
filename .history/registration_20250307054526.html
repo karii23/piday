@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Enter Names</title>
+    <title>Pi Day</title>
     <style>
         body
         {
@@ -11,12 +11,6 @@
             background-repeat: no-repeat;
             background-size: cover;
             background-attachment: fixed;
-            animation: fadeIn 0.8s ease-in-out forwards;
-        }
-        @keyframes fadeIn 
-        {
-            0% { opacity: 0; }
-            100% { opacity: 1; }
         }
         fieldset
         {
@@ -25,7 +19,7 @@
             width: 600px;
             height: 400px;
             box-shadow: rgb(0,0,0,0.2) 1px 1px 4px 4px;
-            border: 2px solid rgba(248, 247, 247, 0.861);
+            border: solid 2px rgba(234, 234, 234, 0.999);
             border-radius: 20px;
         }
         .logo
@@ -43,7 +37,7 @@
             margin-top: -2px;
             font-size: 60px;
             color: rgba(255, 255, 255, 0.8);
-            animation: floatPi 2s ease-in-out infinite alternate;
+            animation: floatPi 5s ease-in-out infinite alternate;
             text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4);
         }
         @keyframes floatPi 
@@ -58,13 +52,13 @@
             font-weight: bold;
             color: white;
         }
-        input[type = "text"]
+        input[type = "number"]
         {
             font-size: 35px;
             padding-left: 25px;
             color: #994aca;
         }
-        .text
+        .num
         {
             border: none;
             width: 400px;
@@ -95,9 +89,7 @@
             text-align: right;
             color: rgb(211, 206, 206);
             font-family: sans-serif;
-            margin-top: 90px;
-            font-size: 18px;
-            position: fixed;
+            margin-b;
         }
     </style>
 </head>
@@ -106,8 +98,8 @@
     <img src="Shaaban_Logo.jpg" class="logo">
     <fieldset>
         <div class="pi-symbol">π</div><br>
-        <p class="heading">Enter name of participants</p><br>
-        <input type="text" class="text"><br><br><br><br>
+        <p class="heading">Enter number of participants</p><br>
+        <input type="number" class="num" min="1"><br><br><br><br>
         <button type="button" onclick="next()" class="next">Next</button><br>
     </fieldset>
     </center>
