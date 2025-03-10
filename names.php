@@ -1,3 +1,6 @@
+<?php
+    $num = $_GET['num'];
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -11,9 +14,9 @@
     <center>
         <fieldset>
             <div class="pi-symbol">π</div><br>
-            <form action="numbers.php" name="form" method="GET">
-                <p class="heading">Enter number of participants</p><br>
-                <input type="number" class="num" name="username" id="user"><br><br>
+            <?php echo "<form action='register.php?num=$num' name='form' method='POST'>";?>
+                <p class="heading">Enter name of participants</p><br>
+                <input type="text" class="num" name="username" id="user"><br><br>
                 <p class="alert" id="ualert"></p><br><br>
                 <button onclick="next()" name="submit" class="next">Next</button><br>
             </form>
@@ -22,13 +25,8 @@
     <script>
         function next()
         {
-            if(document.form.username.value === "" || document.form.username.value < 0){
-                document.getElementById("ualert").innerHTML = "Number of participants cannot be 0 or less!";
-                document.getElementById("user").style.border = "2px solid red";
-                event.preventDefault();
-            }
-            else if(isNaN(document.form.username.value)){
-                document.getElementById("ualert").innerHTML = "Please enter a number";
+            if(document.form.username.value === ""){
+                document.getElementById("ualert").innerHTML = "Please input username!";
                 document.getElementById("user").style.border = "2px solid red";
                 event.preventDefault();
             }

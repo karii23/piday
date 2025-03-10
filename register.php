@@ -4,6 +4,7 @@
 
     if(isset($_POST['submit'])){
         $username = $_POST['username'];
+        $num = $_GET['num'];
 
         $exist = false;
 
@@ -25,7 +26,7 @@
         $query = "SELECT * FROM users";
         $result = mysqli_query($db, $query);
 
-        if(mysqli_num_rows($result)>0){
+        if($result){
             for($i=0; $i<mysqli_num_rows($result); $i++){
                 $row = mysqli_fetch_array($result);
 
@@ -36,21 +37,13 @@
                 }
             }
         }
-        else{
-            $query2 = "INSERT INTO users(username, userkey) VALUES('$username', '$userkey')";
-            $result2 = mysqli_query($db, $query2);
-
-            if($result2){
-                header("location:home.php?id=$userkey");
-            }
-        }
 
         if(!$exist){
             $query2 = "INSERT INTO users(username, userkey) VALUES('$username', '$userkey')";
             $result2 = mysqli_query($db, $query2);
 
             if($result2){
-                header("location:home.php?id=$userkey");
+                header("location:home.php?num=$num&&id=$userkey");
             }
         }
     }

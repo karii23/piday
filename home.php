@@ -1,11 +1,13 @@
 <?php
     $id = $_GET['id'];
+    $num = $_GET['num'];
 ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/X-icon" href="media/images/srss-logo-removebg-preview.png">
     <title>Home page</title>
 </head>
 <style>
@@ -83,10 +85,10 @@
 </style>
 <body>
     <center>
-        <img src="Shaaban_Logo (1).png" class="logo">
+        <img src="media/images/srss-logo.jfif" class="logo">
         <img src="media/icons/microphone.png" title="Click to speak" class="mic"><br>
         <!-- digits to appear her -->
-        <?php echo "<form action='submit.php?id=$id' method='POST' enctype='multipart/form-data'>";?>
+        <?php echo "<form action='submit.php?num=$num&&id=$id' method='POST' enctype='multipart/form-data'>";?>
             <textarea name="output" cols="50" rows="1" id="speechoutput" class="appear"></textarea><br><br><br>
             <button class="submit" onclick="submit()" name="submit">Submit Record</button>
         </form>
